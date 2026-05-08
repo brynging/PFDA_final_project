@@ -23,6 +23,10 @@ def main():
     bangs_color_count = 0
     bangs = ""
     bangs_color = ""
+    hair_count = 0
+    hair_color_count= 0
+    hair = ""
+    hair_color = ""
     running = True
 
     while running:
@@ -61,6 +65,26 @@ def main():
                         bangs_color_count = 0
                     else:
                         bangs_color_count += 1
+                if hair_decrease_button[1].collidepoint(mouse):
+                    if hair_count == 0:
+                        hair_count = 20
+                    else:
+                        hair_count -= 1
+                if hair_increase_button[1].collidepoint(mouse):
+                    if hair_count == 20:
+                        hair_count = 0
+                    else:
+                        hair_count += 1
+                if hair_color_decrease_button[1].collidepoint(mouse):
+                    if hair_color_count == 0:
+                        hair_color_count = 15
+                    else:
+                        hair_color_count -= 1
+                if hair_color_increase_button[1].collidepoint(mouse):
+                    if hair_color_count == 15:
+                        hair_color_count = 0
+                    else:
+                        hair_color_count += 1
 
         background = pygame.image.load(os.path.join("game_graphics", "background.png")).convert()
         screen.blit(background, (0, 0))
@@ -70,6 +94,125 @@ def main():
         bangs_increase_button = button(os.path.join("game_graphics", "button_increase.png"), (605, 175), screen)
         bangs_color_decrease_button = button(os.path.join("game_graphics", "button_decrease.png"), (635, 175), screen)
         bangs_color_increase_button = button(os.path.join("game_graphics", "button_increase.png"), (765, 175), screen)
+        hair_decrease_button = button(os.path.join("game_graphics", "button_decrease.png"), (445, 255), screen)
+        hair_increase_button = button(os.path.join("game_graphics", "button_increase.png"), (605, 255), screen)
+        hair_color_decrease_button = button(os.path.join("game_graphics", "button_decrease.png"), (635, 255), screen)
+        hair_color_increase_button = button(os.path.join("game_graphics", "button_increase.png"), (765, 255), screen)
+        
+        if hair_count == 0:
+            blitify("hair1.png", screen)
+            hair = "1hair_"
+        elif hair_count == 1:
+            blitify("hair2.png", screen)
+            hair = "2hair_"
+        elif hair_count == 2:
+            blitify("hair3.png", screen)
+            hair = "3hair_"
+        elif hair_count == 3:
+            blitify("hair4.png", screen)
+            hair = "4hair_"
+        elif hair_count == 4:
+            blitify("hair5.png", screen)
+            hair = "5hair_"
+        elif hair_count == 5:
+            blitify("hair6.png", screen)
+            hair = "6hair_"
+        elif hair_count == 6:
+            blitify("hair7.png", screen)
+            hair = "7hair_"
+        elif hair_count == 7:
+            blitify("hair8.png", screen)
+            hair = "8hair_"
+        elif hair_count == 8:
+            blitify("hair9.png", screen)
+            hair = "9hair_"
+        elif hair_count == 9:
+            blitify("hair10.png", screen)
+            hair = "10hair_"
+        elif hair_count == 10:
+            blitify("hair11.png", screen)
+            hair = "11hair_"
+        elif hair_count == 11:
+            blitify("hair12.png", screen)
+            hair = "12hair_"
+        elif hair_count == 12:
+            blitify("hair13.png", screen)
+            hair = "13hair_"
+        elif hair_count == 13:
+            blitify("hair14.png", screen)
+            hair = "14hair_"
+        elif hair_count == 14:
+            blitify("hair15.png", screen)
+            hair = "15hair_"
+        elif hair_count == 15:
+            blitify("hair16.png", screen)
+            hair = "16hair_"
+        elif hair_count == 16:
+            blitify("hair17.png", screen)
+            hair = "17hair_"
+        elif hair_count == 17:
+            blitify("hair18.png", screen)
+            hair = "18hair_"
+        elif hair_count == 18:
+            blitify("hair19.png", screen)
+            hair = "19hair_"
+        elif hair_count == 19:
+            blitify("hair20.png", screen)
+            hair = "20hair_"
+        elif hair_count == 20:
+            blitify("hair21.png", screen)
+            hair = "21hair_"
+        
+        if hair_color_count == 0:
+            blitify("hair_color_black.png", screen)
+            hair_color = "black.png"
+        elif hair_color_count == 1:
+            blitify("hair_color_dark_brown.png", screen)
+            hair_color = "dark_brown.png"
+        elif hair_color_count == 2:
+            blitify("hair_color_brown.png", screen)
+            hair_color = "brown.png"
+        elif hair_color_count == 3:
+            blitify("hair_color_dirty_blond.png", screen)
+            hair_color = "dirty_blond.png"
+        elif hair_color_count == 4:
+            blitify("hair_color_blond.png", screen)
+            hair_color = "blond.png"
+        elif hair_color_count == 5:
+            blitify("hair_color_white.png", screen)
+            hair_color = "white.png"
+        elif hair_color_count == 6:
+            blitify("hair_color_red.png", screen)
+            hair_color = "red.png"
+        elif hair_color_count == 7:
+            blitify("hair_color_orange.png", screen)
+            hair_color = "orange.png"
+        elif hair_color_count == 8:
+            blitify("hair_color_yellow.png", screen)
+            hair_color = "yellow.png"
+        elif hair_color_count == 9:
+            blitify("hair_color_lime.png", screen)
+            hair_color = "lime.png"
+        elif hair_color_count == 10:
+            blitify("hair_color_green.png", screen)
+            hair_color = "green.png"
+        elif hair_color_count == 11:
+            blitify("hair_color_cyan.png", screen)
+            hair_color = "cyan.png"
+        elif hair_color_count == 12:
+            blitify("hair_color_blue.png", screen)
+            hair_color = "blue.png"
+        elif hair_color_count == 13:
+            blitify("hair_color_purple.png", screen)
+            hair_color = "purple.png"
+        elif hair_color_count == 14:
+            blitify("hair_color_lilac.png", screen)
+            hair_color = "lilac.png"
+        elif hair_color_count == 15:
+            blitify("hair_color_pink.png", screen)
+            hair_color = "pink.png"
+
+        blitify(f"{hair}{hair_color}", screen)
 
         if skin_count == 0:
             blitify("darkest.png", screen)
