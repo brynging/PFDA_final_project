@@ -27,6 +27,10 @@ def main():
     hair_color_count= 0
     hair = ""
     hair_color = ""
+    top_count = 0
+    top_color_count = 0
+    top = ""
+    top_color = ""
     running = True
 
     while running:
@@ -85,6 +89,26 @@ def main():
                         hair_color_count = 0
                     else:
                         hair_color_count += 1
+                if top_decrease_button[1].collidepoint(mouse):
+                    if top_count == 0:
+                        top_count = 10
+                    else:
+                        top_count -= 1
+                if top_increase_button[1].collidepoint(mouse):
+                    if top_count == 10:
+                        top_count = 0
+                    else:
+                        top_count += 1
+                if top_color_decrease_button[1].collidepoint(mouse):
+                    if top_color_count == 0:
+                        top_color_count = 12
+                    else:
+                        top_color_count -= 1
+                if top_color_increase_button[1].collidepoint(mouse):
+                    if top_color_count == 12:
+                        top_color_count = 0
+                    else:
+                        top_color_count += 1
 
         background = pygame.image.load(os.path.join("game_graphics", "background.png")).convert()
         screen.blit(background, (0, 0))
@@ -98,6 +122,10 @@ def main():
         hair_increase_button = button(os.path.join("game_graphics", "button_increase.png"), (605, 255), screen)
         hair_color_decrease_button = button(os.path.join("game_graphics", "button_decrease.png"), (635, 255), screen)
         hair_color_increase_button = button(os.path.join("game_graphics", "button_increase.png"), (765, 255), screen)
+        top_decrease_button = button(os.path.join("game_graphics", "button_decrease.png"), (445, 335), screen)
+        top_increase_button = button(os.path.join("game_graphics", "button_increase.png"), (605, 335), screen)
+        top_color_decrease_button = button(os.path.join("game_graphics", "button_decrease.png"), (635, 335), screen)
+        top_color_increase_button = button(os.path.join("game_graphics", "button_increase.png"), (765, 335), screen)
         
         if hair_count == 0:
             blitify("hair1.png", screen)
@@ -237,6 +265,82 @@ def main():
             blitify("skin_lightest.png", screen)
         
         blitify("eyes.png", screen)
+
+        if top_count == 0:
+            blitify("top_short_sleeve.png", screen)
+            top = "short_sleeve_"
+        elif top_count == 1:
+            blitify("top_crop_short_sleeve.png", screen)
+            top = "crop_short_sleeve_"
+        elif top_count == 2:
+            blitify("top_tank.png", screen)
+            top = "tank_"
+        elif top_count == 3:
+            blitify("top_crop_tank.png", screen)
+            top = "crop_tank_"
+        elif top_count == 4:
+            blitify("top_long_sleeve.png", screen)
+            top = "long_sleeve_"
+        elif top_count == 5:
+            blitify("top_crop_long_sleeve.png", screen)
+            top = "crop_long_sleeve_"
+        elif top_count == 6:
+            blitify("top_button_up.png", screen)
+            top = "button_up_"
+        elif top_count == 7:
+            blitify("top_sweater.png", screen)
+            top = "sweater_"
+        elif top_count == 8:
+            blitify("top_hoodie.png", screen)
+            top = "hoodie_"
+        elif top_count == 9:
+            blitify("top_light_open.png")
+            top = "light_open_"
+        elif top_count == 10:
+            blitify("top_dark_open.png")
+            top = "dark_open_"
+
+        if top_color_count == 0:
+            blitify("top_color_black.png", screen)
+            top_color = "black.png"
+        elif top_color_count == 1:
+            blitify("top_color_white.png", screen)
+            top_color = "white.png"
+        elif top_color_count == 2:
+            blitify("top_color_red.png", screen)
+            top_color = "red.png"
+        elif top_color_count == 3:
+            blitify("top_color_orange.png", screen)
+            top_color = "orange.png"
+        elif top_color_count == 4:
+            blitify("top_color_yellow.png", screen)
+            top_color = "yellow.png"
+        elif top_color_count == 5:
+            blitify("top_color_lime.png", screen)
+            top_color = "lime.png"
+        elif top_color_count == 6:
+            blitify("top_color_green.png", screen)
+            top_color = "green.png"
+        elif top_color_count == 7:
+            blitify("top_color_cyan.png", screen)
+            top_color = "cyan.png"
+        elif top_color_count == 8:
+            blitify("top_color_blue.png", screen)
+            top_color = "blue.png"
+        elif top_color_count == 9:
+            blitify("top_color_purple.png", screen)
+            top_color = "purple.png"
+        elif top_color_count == 10:
+            blitify("top_color_lilac.png", screen)
+            top_color = "lilac.png"
+        elif top_color_count == 11:
+            blitify("top_color_pink.png", screen)
+            top_color = "pink.png"
+        elif top_color_count == 12:
+            blitify("top_color_brown.png", screen)
+            top_color = "brown.png"
+
+        blitify(f"{top}{top_color}", screen)
 
         if bangs_count == 0:
             blitify("bangs1.png", screen)
