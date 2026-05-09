@@ -39,6 +39,7 @@ def main():
     shoes_color_count = 0
     shoes = ""
     shoes_color = ""
+    straw_hat = 0
     running = True
 
     while running:
@@ -157,6 +158,11 @@ def main():
                         shoes_color_count = 0
                     else:
                         shoes_color_count += 1
+                if straw_hat_button[1].collidepoint(mouse):
+                    if straw_hat == 0:
+                        straw_hat += 1
+                    elif straw_hat == 1:
+                        straw_hat -= 1
 
         background = pygame.image.load(os.path.join("game_graphics", "background.png")).convert()
         screen.blit(background, (0, 0))
@@ -182,7 +188,13 @@ def main():
         shoes_increase_button = button(os.path.join("game_graphics", "button_increase.png"), (605, 495), screen)
         shoes_color_decrease_button = button(os.path.join("game_graphics", "button_decrease.png"), (635, 495), screen)
         shoes_color_increase_button = button(os.path.join("game_graphics", "button_increase.png"), (765, 495), screen)
+        straw_hat_button = button(os.path.join("game_graphics", "straw_button.png"), (50, 550), screen)
         
+        if straw_hat == 1:
+            blitify("straw_hat.png", screen)
+        else:
+            pass
+
         if hair_count == 0:
             blitify("hair1.png", screen)
             hair = "1hair_"
