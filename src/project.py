@@ -35,6 +35,10 @@ def main():
     bottoms_color_count = 0
     bottoms = ""
     bottoms_color = ""
+    shoes_count = 0
+    shoes_color_count = 0
+    shoes = ""
+    shoes_color = ""
     running = True
 
     while running:
@@ -133,6 +137,26 @@ def main():
                         bottoms_color_count = 0
                     else:
                         bottoms_color_count += 1
+                if shoes_decrease_button[1].collidepoint(mouse):
+                    if shoes_count == 0:
+                        shoes_count = 6
+                    else:
+                        shoes_count -= 1
+                if shoes_increase_button[1].collidepoint(mouse):
+                    if shoes_count == 6:
+                        shoes_count = 0
+                    else:
+                        shoes_count += 1
+                if shoes_color_decrease_button[1].collidepoint(mouse):
+                    if shoes_color_count == 0:
+                        shoes_color_count = 12
+                    else:
+                        shoes_color_count -= 1
+                if shoes_color_increase_button[1].collidepoint(mouse):
+                    if shoes_color_count == 12:
+                        shoes_color_count = 0
+                    else:
+                        shoes_color_count += 1
 
         background = pygame.image.load(os.path.join("game_graphics", "background.png")).convert()
         screen.blit(background, (0, 0))
@@ -154,6 +178,10 @@ def main():
         bottoms_increase_button = button(os.path.join("game_graphics", "button_increase.png"), (605, 415), screen)
         bottoms_color_decrease_button = button(os.path.join("game_graphics", "button_decrease.png"), (635, 415), screen)
         bottoms_color_increase_button = button(os.path.join("game_graphics", "button_increase.png"), (765, 415), screen)
+        shoes_decrease_button = button(os.path.join("game_graphics", "button_decrease.png"), (445, 495), screen)
+        shoes_increase_button = button(os.path.join("game_graphics", "button_increase.png"), (605, 495), screen)
+        shoes_color_decrease_button = button(os.path.join("game_graphics", "button_decrease.png"), (635, 495), screen)
+        shoes_color_increase_button = button(os.path.join("game_graphics", "button_increase.png"), (765, 495), screen)
         
         if hair_count == 0:
             blitify("hair1.png", screen)
@@ -293,6 +321,70 @@ def main():
             blitify("skin_lightest.png", screen)
         
         blitify("eyes.png", screen)
+
+        if shoes_count == 0:
+            blitify("shoes_light_sneakers.png", screen)
+            shoes = "light_sneakers_"
+        elif shoes_count == 1:
+            blitify("shoes_dark_sneakers.png", screen)
+            shoes = "dark_sneakers_"
+        elif shoes_count == 2:
+            blitify("shoes_mary_janes.png", screen)
+            shoes = "mary_janes_"
+        elif shoes_count == 3:
+            blitify("shoes_boots.png", screen)
+            shoes = "boots_"
+        elif shoes_count == 4:
+            blitify("shoes_sandals.png", screen)
+            shoes = "sandals_"
+        elif shoes_count == 5:
+            blitify("shoes_heels.png", screen)
+            shoes = "heels_"
+        elif shoes_count == 6:
+            blitify("shoes_loafers.png", screen)
+            shoes = "loafers_"
+
+        if shoes_color_count == 0:
+            blitify("shoes_color_black.png", screen)
+            shoes_color = "black.png"
+        elif shoes_color_count == 1:
+            blitify("shoes_color_white.png", screen)
+            shoes_color = "white.png"
+        elif shoes_color_count == 2:
+            blitify("shoes_color_red.png", screen)
+            shoes_color = "red.png"
+        elif shoes_color_count == 3:
+            blitify("shoes_color_orange.png", screen)
+            shoes_color = "orange.png"
+        elif shoes_color_count == 4:
+            blitify("shoes_color_yellow.png", screen)
+            shoes_color = "yellow.png"
+        elif shoes_color_count == 5:
+            blitify("shoes_color_lime.png", screen)
+            shoes_color = "lime.png"
+        elif shoes_color_count == 6:
+            blitify("shoes_color_green.png", screen)
+            shoes_color = "green.png"
+        elif shoes_color_count == 7:
+            blitify("shoes_color_cyan.png", screen)
+            shoes_color = "cyan.png"
+        elif shoes_color_count == 8:
+            blitify("shoes_color_blue.png", screen)
+            shoes_color = "blue.png"
+        elif shoes_color_count == 9:
+            blitify("shoes_color_purple.png", screen)
+            shoes_color = "purple.png"
+        elif shoes_color_count == 10:
+            blitify("shoes_color_lilac.png", screen)
+            shoes_color = "lilac.png"
+        elif shoes_color_count == 11:
+            blitify("shoes_color_pink.png", screen)
+            shoes_color = "pink.png"
+        elif shoes_color_count == 12:
+            blitify("shoes_color_brown.png", screen)
+            shoes_color = "brown.png"
+
+        blitify(f"{shoes}{shoes_color}", screen)    
 
         if bottoms_count == 0:
             blitify("bottoms_shorts.png", screen)
