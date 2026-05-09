@@ -294,10 +294,10 @@ def main():
             blitify("top_hoodie.png", screen)
             top = "hoodie_"
         elif top_count == 9:
-            blitify("top_light_open.png")
+            blitify("top_light_open.png", screen)
             top = "light_open_"
         elif top_count == 10:
-            blitify("top_dark_open.png")
+            blitify("top_dark_open.png", screen)
             top = "dark_open_"
 
         if top_color_count == 0:
