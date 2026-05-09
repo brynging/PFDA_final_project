@@ -31,6 +31,10 @@ def main():
     top_color_count = 0
     top = ""
     top_color = ""
+    bottoms_count = 0
+    bottoms_color_count = 0
+    bottoms = ""
+    bottoms_color = ""
     running = True
 
     while running:
@@ -109,6 +113,26 @@ def main():
                         top_color_count = 0
                     else:
                         top_color_count += 1
+                if bottoms_decrease_button[1].collidepoint(mouse):
+                    if bottoms_count == 0:
+                        bottoms_count = 7
+                    else:
+                        bottoms_count -= 1
+                if bottoms_increase_button[1].collidepoint(mouse):
+                    if bottoms_count == 7:
+                        bottoms_count = 0
+                    else:
+                        bottoms_count += 1
+                if bottoms_color_decrease_button[1].collidepoint(mouse):
+                    if bottoms_color_count == 0:
+                        bottoms_color_count = 12
+                    else:
+                        bottoms_color_count -= 1
+                if bottoms_color_increase_button[1].collidepoint(mouse):
+                    if bottoms_color_count == 12:
+                        bottoms_color_count = 0
+                    else:
+                        bottoms_color_count += 1
 
         background = pygame.image.load(os.path.join("game_graphics", "background.png")).convert()
         screen.blit(background, (0, 0))
@@ -126,6 +150,10 @@ def main():
         top_increase_button = button(os.path.join("game_graphics", "button_increase.png"), (605, 335), screen)
         top_color_decrease_button = button(os.path.join("game_graphics", "button_decrease.png"), (635, 335), screen)
         top_color_increase_button = button(os.path.join("game_graphics", "button_increase.png"), (765, 335), screen)
+        bottoms_decrease_button = button(os.path.join("game_graphics", "button_decrease.png"), (445, 415), screen)
+        bottoms_increase_button = button(os.path.join("game_graphics", "button_increase.png"), (605, 415), screen)
+        bottoms_color_decrease_button = button(os.path.join("game_graphics", "button_decrease.png"), (635, 415), screen)
+        bottoms_color_increase_button = button(os.path.join("game_graphics", "button_increase.png"), (765, 415), screen)
         
         if hair_count == 0:
             blitify("hair1.png", screen)
@@ -265,6 +293,73 @@ def main():
             blitify("skin_lightest.png", screen)
         
         blitify("eyes.png", screen)
+
+        if bottoms_count == 0:
+            blitify("bottoms_shorts.png", screen)
+            bottoms = "shorts_"
+        elif bottoms_count == 1:
+            blitify("bottoms_short_skirt.png", screen)
+            bottoms = "short_skirt_"
+        elif bottoms_count == 2:
+            blitify("bottoms_short_pleated_skirt.png", screen)
+            bottoms = "short_pleated_skirt_"
+        elif bottoms_count == 3:
+            blitify("bottoms_pants.png", screen)
+            bottoms = "pants_"
+        elif bottoms_count == 4:
+            blitify("bottoms_jeans.png", screen)
+            bottoms = "jeans_"
+        elif bottoms_count == 5:
+            blitify("bottoms_jorts.png", screen)
+            bottoms = "jorts_"
+        elif bottoms_count == 6:
+            blitify("bottoms_long_skirt.png", screen)
+            bottoms = "long_skirt_"
+        elif bottoms_count == 7:
+            blitify("bottoms_long_pleated_skirt.png", screen)
+            bottoms = "long_pleated_skirt_"
+        
+        if bottoms_color_count == 0:
+            blitify("bottoms_color_black.png", screen)
+            bottoms_color = "black.png"
+        elif bottoms_color_count == 1:
+            blitify("bottoms_color_white.png", screen)
+            bottoms_color = "white.png"
+        elif bottoms_color_count == 2:
+            blitify("bottoms_color_red.png", screen)
+            bottoms_color = "red.png"
+        elif bottoms_color_count == 3:
+            blitify("bottoms_color_orange.png", screen)
+            bottoms_color = "orange.png"
+        elif bottoms_color_count == 4:
+            blitify("bottoms_color_yellow.png", screen)
+            bottoms_color = "yellow.png"
+        elif bottoms_color_count == 5:
+            blitify("bottoms_color_lime.png", screen)
+            bottoms_color = "lime.png"
+        elif bottoms_color_count == 6:
+            blitify("bottoms_color_green.png", screen)
+            bottoms_color = "green.png"
+        elif bottoms_color_count == 7:
+            blitify("bottoms_color_cyan.png", screen)
+            bottoms_color = "cyan.png"
+        elif bottoms_color_count == 8:
+            blitify("bottoms_color_blue.png", screen)
+            bottoms_color = "blue.png"
+        elif bottoms_color_count == 9:
+            blitify("bottoms_color_purple.png", screen)
+            bottoms_color = "purple.png"
+        elif bottoms_color_count == 10:
+            blitify("bottoms_color_lilac.png", screen)
+            bottoms_color = "lilac.png"
+        elif bottoms_color_count == 11:
+            blitify("bottoms_color_pink.png", screen)
+            bottoms_color = "pink.png"
+        elif bottoms_color_count == 12:
+            blitify("bottoms_color_brown.png", screen)
+            bottoms_color = "brown.png"
+
+        blitify(f"{bottoms}{bottoms_color}", screen)
 
         if top_count == 0:
             blitify("top_short_sleeve.png", screen)
